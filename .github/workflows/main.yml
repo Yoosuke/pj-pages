@@ -3,7 +3,7 @@ name: Jekyll CI/CD
 on:
   push:
     branches:
-      - develop
+      - main
     tags:
       - 'v*'
 
