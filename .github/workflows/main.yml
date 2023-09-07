@@ -12,11 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Generate Gemfile
+      run: |
+        echo "source 'https://rubygems.org'" > Gemfile
+        echo "gem 'jekyll', '~> 4.2'" >> Gemfile
+        
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7
-    - name: Build and test Jekyll site
+        
+    - name: Install dependencies and build site
       run: |
         gem install bundler
         bundle install
